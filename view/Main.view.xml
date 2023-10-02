@@ -1,0 +1,107 @@
+<mvc:View controllerName="brasileirao.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <ObjectHeader title="{ModeloDadosGerais>/nome}"
+            number="{ModeloDadosGerais>/rodada_atual/rodada}ª"
+            numberUnit="Rodada"
+            id="objectheader"
+            >
+            </ObjectHeader>
+
+            <IconTabBar id="icontabbar">
+            
+            <items>
+
+                <IconTabFilter text="Classificação" icon="sap-icon://competitor" id="tabClassificacao">
+                
+                <Table id="tabelaClassificacao" 
+                items = "{ModeloTabela>/Classificacao}">
+                    <columns> 
+
+                        <Column >
+                            <Text text="Posição"></Text>
+                        </Column>
+
+                        <Column >
+                            <Text text="Escudo"></Text>
+                        </Column>
+
+                        <Column >
+                            <Text text="Time"></Text>
+                        </Column>
+
+                        <Column >
+                            <Text text="Pontos"></Text>
+                        </Column>
+
+                        <Column >
+                            <Text text="Jogos"></Text>
+                        </Column>
+
+                        <Column >
+                            <Text text="Vitorias"></Text>
+                        </Column>
+
+                        <Column >
+                            <Text text="Empates"></Text>
+                        </Column>
+
+                        <Column >
+                            <Text text="Derrotas"></Text>
+                        </Column>
+
+                        <Column >
+                            <Text text="GM"></Text>
+                        </Column>
+
+                        <Column >
+                            <Text text="GC"></Text>
+                        </Column>
+
+                        <Column >
+                            <Text text="SG"></Text>
+                        </Column>
+
+                    </columns>
+
+                    <items>
+                        <ColumnListItem >
+                            <cells>
+                                <Text text="{ModeloTabela>posicao}"></Text>
+                                <Image 
+                                src="{ModeloTabela>time/escudo}" width="50%"></Image>
+                                <Text text="{ModeloTabela>time/nome_popular}"></Text>
+                                <Text text="{ModeloTabela>pontos}"></Text>
+                                <Text text="{ModeloTabela>jogos}"></Text>
+                                <Text text="{ModeloTabela>vitorias}"></Text>
+                                <Text text="{ModeloTabela>empates}"></Text>
+                                <Text text="{ModeloTabela>derrotas}"></Text>
+                                <Text text="{ModeloTabela>gols_pro}"></Text>
+                                <Text text="{ModeloTabela>gols_contra}"></Text>
+                                <Text text="{ModeloTabela>saldo_gols}"></Text>
+                            </cells>
+                        </ColumnListItem>
+
+
+                    </items>
+
+                </Table>
+                
+                </IconTabFilter>
+                
+                <IconTabFilter text="Partidas" icon="sap-icon://soccer" id="tabPartidas">
+
+                    <core:Fragment fragmentName="brasileirao.view.partidas" type="XML" />
+
+                </IconTabFilter>
+
+            </items>
+            
+            </IconTabBar>
+
+        </content>
+    </Page>
+</mvc:View>
